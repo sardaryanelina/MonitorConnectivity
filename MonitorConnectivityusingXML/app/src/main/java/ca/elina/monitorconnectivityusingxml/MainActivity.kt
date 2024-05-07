@@ -5,10 +5,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 
@@ -32,6 +29,21 @@ class MainActivity : AppCompatActivity() {
                         showNetworkStatus()
                     }
                 }
+        }
+
+        // example from geeks fro geeks
+        // register the UI element button
+        val checkButton2: Button = findViewById(R.id.buttonCheck2)
+
+        // handle the button click to trigger
+        // checkForInternet function
+        // and show the Toast message according to it.
+        checkButton2.setOnClickListener {
+            if (checkForInternet(this)) {
+                Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Disconnected", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
