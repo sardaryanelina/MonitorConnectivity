@@ -30,6 +30,20 @@ class NetworkListener : ConnectivityManager.NetworkCallback() {
         return isNetworkAvailable
     }
 
+    // another way to check for internet connection suggested by Gemini
+    // works only when app starts, but when we turn on and off the internet connection
+    // it doesn't update the UI
+    fun checkForInternetConnectivity(context: Context): MutableStateFlow<Boolean> {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork
+        val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
+        val isConnected =
+            networkCapabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+        isNetworkAvailable.value = isConnected ?: false
+        return isNetworkAvailable
+    }
+
     override fun onAvailable(network: Network) {
         isNetworkAvailable.value = true
     }
