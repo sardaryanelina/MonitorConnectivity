@@ -31,3 +31,14 @@ fun checkForInternet(context: Context): Boolean {
     }
 }
 
+// another way to check for internet connection suggested by Gemini
+fun checkForInternetConnectivity(context: Context): Boolean {
+    val connectivityManager =
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val network = connectivityManager.activeNetwork
+    val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
+    val isConnected =
+        networkCapabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    return isConnected ?: false
+}
+

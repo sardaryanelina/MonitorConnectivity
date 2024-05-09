@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         // checkForInternet function
         // and show the Toast message according to it.
         checkButton2.setOnClickListener {
-            if (checkForInternet(this)) {
+            if (checkForInternetConnectivity(this)) {
                 Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Disconnected", Toast.LENGTH_SHORT).show()
