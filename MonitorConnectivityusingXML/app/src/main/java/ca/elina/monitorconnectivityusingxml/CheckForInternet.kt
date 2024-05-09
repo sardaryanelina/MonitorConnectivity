@@ -3,7 +3,6 @@ package ca.elina.monitorconnectivityusingxml
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import android.os.Build
 
 // example from geeks for geeks
 // https://www.geeksforgeeks.org/how-to-check-internet-connection-in-kotlin/
@@ -43,6 +42,7 @@ fun checkForInternetConnectivity(context: Context): Boolean {
     return isConnected ?: false
 }
 
+<<<<<<< HEAD
 // GitHUb Copilot suggestion
 fun isNetworkAvailable(context: Context): Boolean {
     val connectivityManager =
@@ -59,3 +59,5 @@ fun isNetworkAvailable(context: Context): Boolean {
         return networkInfo != null && networkInfo.isConnected
     }
 }
+=======
+>>>>>>> parent of 1045055 (Getting the help of AI - ChatGBT, Github Copilot and Gemini)
