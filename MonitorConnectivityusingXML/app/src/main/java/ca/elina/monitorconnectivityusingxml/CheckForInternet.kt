@@ -43,7 +43,6 @@ fun checkForInternetConnectivity(context: Context): Boolean {
     return isConnected ?: false
 }
 
-
 // GitHUb Copilot suggestion
 fun isNetworkAvailable(context: Context): Boolean {
     val connectivityManager =
